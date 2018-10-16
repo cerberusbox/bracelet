@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+@{
+  var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+  var showBanner = !consentFeature?.CanTrack ?? false;
+}
+
+
+<link rel="stylesheet" href="~/3rd-party-assets/animate.css/animate.css" />
+<link rel="stylesheet" href="~/3rd-party-assets/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="~/3rd-party-assets/line-awesome/css/line-awesome.css" />
+<link rel="stylesheet" href="~/3rd-party-assets/components-font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="~/css/Style.css">
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css">
+
+@if (showBanner)
+{
+  <link rel="stylesheet" href="~/3rd-party-assets/bootstrap-cookie-alert/cookiealert.css" />
+}

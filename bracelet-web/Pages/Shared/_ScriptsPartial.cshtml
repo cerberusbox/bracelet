@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+@{
+  var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+  var showBanner = !consentFeature?.CanTrack ?? false;
+}
+
+<script src="~/3rd-party-assets/jquery/dist/jquery.js"></script>
+<script src="~/3rd-party-assets/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/3rd-party-assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+<script src="~/3rd-party-assets/slick-carousel/slick/slick.js"></script>
+@if (showBanner)
+{
+  <script src="~/3rd-party-assets/bootstrap-cookie-alert/cookiealert-standalone.js"></script>
+}
+
+<script src="~/js/scrollbar.js"></script>
+<script src="~/js/script.js"></script>
+<script src="~/js/script.js"></script>
+<script src="~/js/disabled.js"></script>
+

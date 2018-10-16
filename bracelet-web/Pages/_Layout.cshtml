@@ -1,45 +1,19 @@
-﻿@using Microsoft.AspNetCore.Http.Features
-@{
-    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
-    var showBanner = !consentFeature?.CanTrack ?? false;
-    var cookieString = consentFeature?.CreateConsentCookie();
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@ViewData["Title"] - bracelet_web</title>
-
-    <link rel="stylesheet" href="~/3rd-party-assets/bootstrap/dist/css/bootstrap.css" />
-    @if (showBanner){
-      <link rel="stylesheet" href="~/3rd-party-assets/bootstrap-cookie-alert/cookiealert.css" />
-    }
-    <link rel="stylesheet" href="~/css/style.css" />
+  <partial name="_StylesPartial" />
+  @RenderSection("Styles", required: false)
 </head>
 <body>
-
+<partial name="_CookieConsentPartial" />
+<div class="wrapper">
   <partial name="_NavbarPartial" />
-
-  <partial name="_CookieConsentPartial" />
-
-  <div class="container body-content">
     @RenderBody()
-    <hr />
-    <footer>
-      <p>&copy; 2018 - bracelet_web</p>
-    </footer>
-  </div>
-
-    <script src="~/3rd-party-assets/jquery/dist/jquery.js"></script>
-    <script src="~/3rd-party-assets/bootstrap/dist/js/bootstrap.js"></script>
-    
-    @if (showBanner){
-      <script src="~/3rd-party-assets/bootstrap-cookie-alert/cookiealert-standalone.js"></script>
-    }
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
+</div>
+  <partial name="_ScriptsPartial" />
   @RenderSection("Scripts", required: false)
 </body>
 </html>

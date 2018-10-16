@@ -25,7 +25,9 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    './wwwroot/css/Style.css': './Scss/Style.scss'
+                  './wwwroot/css/Reset.css': './Scss/Reset.scss',
+                  './wwwroot/css/Responsive.css': './Scss/Responsive.scss',
+                  './wwwroot/css/Style.css': './Scss/Style.scss'
                 }
             }
         }
